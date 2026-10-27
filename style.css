@@ -1,0 +1,458 @@
+/* ==========================================
+   Ajmer Wheels - main stylesheet
+   written by hand, no frameworks :)
+   ========================================== */
+
+:root {
+  --charcoal: #181A1B;
+  --sunset: #E05A47;
+  --sunset-dark: #c4473606;
+  --cream: #FAF9F6;
+  --slate: #2C302E;
+  --sand: #efe7da;
+  --soft-line: #e3ddd2;
+  --radius-soft: 14px;
+  --heading-font: "Georgia", "Times New Roman", serif;
+  --body-font: "Segoe UI", "Trebuchet MS", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body-font);
+  background: var(--cream);
+  color: var(--slate);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.wrap-box {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+
+}
+
+/* ---------- Navigation styles ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(219, 60, 12, 0.567);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(218, 29, 12, 0.421);
+  color: #181A1B;
+ 
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.shop-logo {
+  color: var(--cream);
+  text-decoration: none;
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  letter-spacing: .5px;
+}
+.shop-logo span { color: var(--sunset); }
+
+.menu-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.menu-links a {
+  color: #d9d6cf;
+  text-decoration: none;
+  font-size: .95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color .3s ease;
+}
+
+/* the sliding underline - took me a while to get this right */
+.menu-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--sunset);
+  transition: width .3s ease;
+}
+.menu-links a:hover,
+.menu-links a.on-page { color: #fff; }
+.menu-links a:hover::after,
+.menu-links a.on-page::after { width: 100%; }
+
+/* ---------- Buttons (shiny sweep) ---------- */
+.ride-btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding: 13px 30px;
+  border-radius: 40px;
+  background: var(--sunset);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+.ride-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+  transform: skewX(-20deg);
+}
+.ride-btn:hover {
+  box-shadow: 0 8px 22px rgba(224, 90, 71, .45);
+  transform: translateY(-2px);
+}
+.ride-btn:hover::before { animation: shineSweep .8s ease; }
+
+.ride-btn.ghosty {
+  background: transparent;
+  border: 2px solid var(--cream);
+  color: var(--cream);
+}
+.ride-btn.ghosty:hover { background: var(--cream); color: var(--charcoal); }
+
+@keyframes shineSweep {
+  from { left: -75%; }
+  to { left: 125%; }
+}
+
+/* ---------- Hero Section ---------- */
+.desert-hero {
+  background:
+    linear-gradient(100deg, rgba(24,26,27,.92) 30%, rgba(24, 26, 27, 0.023)),
+    url("image/\(_Ride\ Beyond\ Limits_\ GT\ Bike\ Adventure__\).jpg") center/cover;
+  color: var(--cream);
+  padding: 120px 0 130px;
+}
+.desert-hero .tagline-small {
+  color: var(--sunset);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: .8rem;
+  font-weight: 700;
+}
+.desert-hero h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  max-width: 640px;
+  margin: 14px 0 20px;
+  font-weight: normal;
+}
+.desert-hero h1 em { color: var(--sunset); }
+.desert-hero p { max-width: 520px; color: #cfcac0; margin-bottom: 32px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* inner page banner - smaller cousin of hero */
+.page-banner {
+  background: var(--charcoal);
+  color: var(--cream);
+  padding: 70px 0 60px;
+}
+.page-banner h1 {
+  font-family: var(--heading-font);
+  font-weight: normal;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.page-banner p { color: #b9b4aa; max-width: 560px; }
+
+/* ---------- common blocks ---------- */
+.chunk { padding: 80px 0; }
+.chunk.sandy { background: var(--sand); }
+
+.chunk-title {
+  font-family: var(--heading-font);
+  font-weight: normal;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--charcoal);
+}
+.chunk-sub { color: #6b6f6c; margin-bottom: 40px; max-width: 560px; }
+
+/* Feature badges */
+.perk-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: -50px;
+  flex-wrap: wrap;
+}
+.perk-item {
+  flex: 1 1 220px;
+  background: #fff;
+  border-radius: var(--radius-soft);
+  padding: 22px 24px;
+  box-shadow: 0 10px 30px rgba(24,26,27,.08);
+  border-left: 4px solid var(--sunset);
+}
+.perk-item h3 { font-size: 1.05rem; color: var(--charcoal); }
+.perk-item p { font-size: .9rem; color: #6b6f6c; }
+
+/* Fleet preview */
+.bike-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 26px;
+}
+.bike-tile {
+  background: #fff;
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  border: 1px solid var(--soft-line);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.bike-tile:hover { transform: translateY(-5px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
+.bike-tile img { height: 190px; width: 100%; object-fit: cover; }
+.bike-tile-body { padding: 20px 22px 24px; }
+.bike-tile h3 { font-size: 1.15rem; color: var(--charcoal); }
+.bike-tile .kind { font-size: .85rem; color: #8a8d8a; }
+.price-tag {
+  margin-top: 12px;
+  font-size: 1.5rem;
+  font-family: var(--heading-font);
+  color: var(--sunset);
+}
+.price-tag small { font-size: .85rem; color: #8a8d8a; font-family: var(--body-font); }
+
+/* CTA section */
+.call-out {
+  background: var(--sunset);
+  color: #fff;
+  border-radius: 22px;
+  padding: 54px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.call-out h2 { font-family: var(--heading-font); font-weight: normal; font-size: 1.9rem; }
+.call-out .ride-btn { background: var(--charcoal); }
+
+/* ---------- About page ---------- */
+.story-split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.story-split p { margin-bottom: 16px; }
+.owner-quote {
+  font-family: var(--heading-font);
+  font-style: italic;
+  font-size: 1.2rem;
+  border-left: 3px solid var(--sunset);
+  padding-left: 18px;
+  color: var(--charcoal);
+}
+.story-split img { border-radius: var(--radius-soft); height: 380px; width: 100%; object-fit: cover; }
+
+.shop-pics {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+}
+.shop-pics figure { margin: 0; }
+.shop-pics img { height: 230px; width: 100%; object-fit: cover; border-radius: 10px; }
+.shop-pics figcaption { font-size: .82rem; color: #8a8d8a; margin-top: 6px; }
+
+.values-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.value-note {
+  background: #fff;
+  padding: 26px;
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--soft-line);
+}
+.value-note .num {
+  font-family: var(--heading-font);
+  color: var(--sunset);
+  font-size: 2rem;
+}
+.value-note h3 { color: var(--charcoal); margin-bottom: 6px; }
+
+/* ---------- Services page ---------- */
+.rate-table-holder { overflow-x: auto; }
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  min-width: 560px;
+}
+.rate-table th, .rate-table td {
+  padding: 15px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--soft-line);
+}
+.rate-table thead th { background: var(--charcoal); color: var(--cream); font-weight: 600; }
+.rate-table tbody tr:hover { background: #fdf3f1; }
+.rate-table td:first-child { font-weight: 600; color: var(--charcoal); }
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+.spec-box {
+  background: #fff;
+  border-radius: var(--radius-soft);
+  padding: 24px;
+  border-top: 4px solid var(--charcoal);
+}
+.spec-box h3 { color: var(--charcoal); margin-bottom: 10px; }
+.spec-box dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: .93rem; }
+.spec-box dt { color: #8a8d8a; }
+.spec-box dd { color: var(--slate); font-weight: 600; }
+
+.rules-list { list-style: none; display: grid; gap: 14px; max-width: 760px; }
+.rules-list li {
+  background: #fff;
+  padding: 16px 20px 16px 52px;
+  border-radius: 10px;
+  position: relative;
+}
+.rules-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 18px;
+  top: 15px;
+  color: var(--sunset);
+  font-weight: 700;
+}
+
+/* ---------- Contact page ---------- */
+.reach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 44px;
+}
+.info-block { margin-bottom: 28px; }
+.info-block h2 { font-size: 1.15rem; color: var(--charcoal); margin-bottom: 6px; }
+.timing-list { list-style: none; }
+.timing-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--soft-line); padding: 6px 0; }
+
+.quick-links { display: flex; flex-direction: column; gap: 12px; }
+.quick-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--soft-line);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.quick-link:hover { border-color: var(--sunset); transform: translateX(4px); }
+.quick-link b { color: var(--charcoal); }
+
+.enquiry-form {
+  background: #fff;
+  padding: 34px;
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--soft-line);
+}
+.enquiry-form h2 { font-family: var(--heading-font); font-weight: normal; margin-bottom: 18px; color: var(--charcoal); }
+.field-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { margin-bottom: 16px; display: flex; flex-direction: column; }
+.field label { font-size: .88rem; font-weight: 600; margin-bottom: 6px; }
+.field input, .field select, .field textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--soft-line);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: .95rem;
+  background: var(--cream);
+  width: 100%;
+  min-width: 0;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--sunset);
+  box-shadow: 0 0 0 3px rgba(224,90,71,.15);
+}
+
+.map-frame {
+  margin-top: 50px;
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  border: 1px solid var(--soft-line);
+}
+.map-frame iframe { width: 100%; height: 380px; border: 0; display: block; }
+
+/* ---------- Footer ---------- */
+.bottom-bar {
+  background: var(--charcoal);
+  color: #a9a59c;
+  padding: 50px 0 26px;
+  font-size: .92rem;
+}
+.bottom-cols { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 30px; }
+.bottom-cols h2 { color: var(--cream); font-size: 1rem; margin-bottom: 10px; }
+.bottom-cols ul { list-style: none; }
+.bottom-cols a { text-decoration: none; }
+.bottom-cols a:hover { color: var(--sunset); }
+.copy-line { border-top: 1px solid rgba(255,255,255,.08); padding-top: 18px; text-align: center; font-size: .82rem; }
+
+/* ---------- Tablets & phones ---------- */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  .topbar-inner { flex-direction: column; gap: 10px; }
+  .menu-links { gap: 18px; }
+  .desert-hero { padding: 80px 0 100px; }
+  .story-split, .reach-grid { grid-template-columns: minmax(0, 1fr); }
+  .reach-grid > * { min-width: 0; }
+  .field-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .menu-links { flex-wrap: wrap; justify-content: center; }
+  .hero-actions .ride-btn { text-align: center; }
+  .call-out h2 { font-size: 1.5rem; }
+  .enquiry-form { padding: 24px; }
+  .quick-link { overflow-wrap: anywhere; }
+  .shop-pics { grid-template-columns: 1fr 1fr; }
+  .shop-pics figure:first-child { grid-column: span 2; }
+  .values-list { grid-template-columns: 1fr; }
+  .call-out { padding: 38px 28px; }
+  .chunk { padding: 60px 0; }
+}
+
+/* tiny phones - checked on my old phone */
+@media (max-width: 360px) {
+  .menu-links { gap: 12px; font-size: .85rem; }
+  .field-pair { grid-template-columns: minmax(0, 1fr); }
+  .hero-actions .ride-btn, .call-out .ride-btn { width: 100%; }
+  .shop-pics { grid-template-columns: 1fr; }
+  .shop-pics figure:first-child { grid-column: auto; }
+  .enquiry-form { padding: 22px; }
+  .ride-btn { padding: 12px 22px; }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Ajmer Wheels - call, WhatsApp or visit our bike rental shop on Kutchery Road, Ajmer.">
+  <title>Contact | Ajmer Wheels</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* booking confirmation box */
+    .booking-success {
+      background: #fff;
+      border: 1px solid var(--soft-line);
+      border-radius: var(--radius-soft);
+      padding: 50px 34px;
+      text-align: center;
+      align-self: start;
+    }
+    .booking-success[hidden] { display: none; }
+    .tick-circle {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: #22b35a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: tickPop .5s ease;
+    }
+    .tick-circle svg { width: 60px; height: 60px; }
+    .booking-success h2 {
+      font-family: var(--heading-font);
+      font-weight: normal;
+      font-size: 1.8rem;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .booking-success p { color: #6b6f6c; margin-bottom: 8px; }
+    .booking-success .ride-btn { margin-top: 18px; }
+    @keyframes tickPop {
+      0% { transform: scale(.3); opacity: 0; }
+      70% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap-box topbar-inner">
+      <a href="index.html" class="shop-logo">Ajmer<span>Wheels</span></a>
+      <nav aria-label="Main menu">
+        <ul class="menu-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Fleet &amp; Rates</a></li>
+          <li><a href="contact.html" class="on-page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-banner">
+      <div class="wrap-box">
+        <h1>Come say hi</h1>
+        <p>Drop by the shop, call, or just WhatsApp — we reply fast.</p>
+      </div>
+    </section>
+
+    <section class="chunk">
+      <div class="wrap-box">
+        <div class="reach-grid">
+          <div>
+            <div class="info-block">
+              <h2>Shop address</h2>
+              <address>Ajmer Wheels, Near Gandhi Bhawan,<br>Kutchery Road, Ajmer,<br>Rajasthan 305001</address>
+            </div>
+
+            <div class="info-block">
+              <h2>Timings</h2>
+              <ul class="timing-list">
+                <li><span>Mon – Sat</span><span>7:00 am – 9:30 pm</span></li>
+                <li><span>Sunday</span><span>8:00 am – 8:00 pm</span></li>
+                <li><span>Roadside help</span><span>24 × 7</span></li>
+              </ul>
+            </div>
+
+            <div class="quick-links">
+              <a class="quick-link" href="tel:+918875331977"><b>Call</b> +91 88753 31977</a>
+              <a class="quick-link" href="https://wa.me/919876543210"><b>WhatsApp</b> Chat with us</a>
+              <a class="quick-link" href="mailto:hello@ajmerwheels.in"><b>Email</b> hello@ajmerwheels.in</a>
+            </div>
+          </div>
+
+          <form class="enquiry-form" action="#" method="post">
+            <h2>Booking enquiry</h2>
+            <div class="field-pair">
+              <div class="field">
+                <label for="riderName">Your name</label>
+                <input type="text" id="riderName" name="riderName" required>
+              </div>
+              <div class="field">
+                <label for="riderPhone">Phone</label>
+                <input type="tel" id="riderPhone" name="riderPhone" required>
+              </div>
+            </div>
+            <div class="field-pair">
+              <div class="field">
+                <label for="pickDate">Pickup date</label>
+                <input type="date" id="pickDate" name="pickDate">
+              </div>
+              <div class="field">
+                <label for="whichBike">Bike</label>
+                <select id="whichBike" name="whichBike">
+                  <option>Honda Activa</option>
+                  <option>Bajaj Pulsar 150</option>
+                  <option>Royal Enfield Classic 350</option>
+                  <option>Royal Enfield Himalayan</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="riderMsg">Anything else?</label>
+              <textarea id="riderMsg" name="riderMsg" rows="4"></textarea>
+            </div>
+            <button type="submit" class="ride-btn">Send enquiry</button>
+          </form>
+
+          <div class="booking-success" id="bookingSuccess" hidden role="status" aria-live="polite">
+            <div class="tick-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            </div>
+            <h2>Your booking is confirmed!</h2>
+            <p id="successName">Thank you!</p>
+            <p>We'll call you shortly on your number to finalise the details.</p>
+            <a href="index.html" class="ride-btn">Back to home</a>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe title="Map showing Ajmer Wheels location in Ajmer" src="https://www.google.com/maps?q=Kutchery+Road+Ajmer&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom-bar">
+    <div class="wrap-box">
+      <div class="bottom-cols">
+        <div>
+          <h2>Ajmer Wheels</h2>
+          <p>Near Gandhi Bhawan, Kutchery Road,<br>Ajmer, Rajasthan 305001</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our story</a></li>
+            <li><a href="services.html">Fleet &amp; rates</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Open</h2>
+          <p>Every day, 7:00 am – 9:30 pm</p>
+        </div>
+      </div>
+      <p class="copy-line">© 2026 Ajmer Wheels · made with chai &amp; code</p>
+    </div>
+  </footer>
+
+  <script>
+    var form = document.querySelector('.enquiry-form');
+    var box = document.getElementById('bookingSuccess');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('riderName').value.trim();
+      document.getElementById('successName').textContent = name ? 'Thank you, ' + name + '.' : 'Thank you!';
+      form.style.display = 'none';
+      box.hidden = false;
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+
+</body>
+</html>
